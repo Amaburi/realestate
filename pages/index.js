@@ -20,7 +20,6 @@ export const Banner = ({ purpose, title1, title2, desc1, desc2, buttonText, link
 );
 
 const index = ({propertyForSale, propertyForRent}) => {
-  console.log(propertyForRent,propertyForSale)
   return (
     <Box>
       <Banner purpose={'For sale'} title1='Rental Homes For' title2='Everyone' desc1='Explore Apartments, Home, villas, etx' buttonText='Explore now' linkName='/search?purpose=for-rent' imageUrl='https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4'/>
@@ -28,8 +27,9 @@ const index = ({propertyForSale, propertyForRent}) => {
         {propertyForRent.map((property)=> <Property property={property} key={property.id}/>)}
       </Flex>
       <Banner purpose={'Buy a House'} title1='Find your own' title2='Dream house' desc1='Explore Apartments, Home, villas, etx' buttonText='Explore now' linkName='/search?purpose=for-sale' imageUrl='https://bayut-production.s3.eu-central-1.amazonaws.com/image/145426814/33973352624c48628e41f2ec460faba4'/>
-      {propertyForSale.map((property)=> <Property property={property} key={property.id}/>)}
-
+      <Flex flexWrap='wrap'>
+        {propertyForSale.map((property)=> <Property property={property} key={property.id}/>)}
+      </Flex>
     </Box>
   )
 }
